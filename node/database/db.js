@@ -1,8 +1,9 @@
-import { Sequelize } from "sequelize";
+import mongoose from 'mongoose'
+const url = 'mongodb://127.0.0.1:27017/mern'
+mongoose.connect(url)
 
-const db = new Sequelize('blogs', 'root', '26734078', {
-    host: 'localhost',
-    dialect: 'mysql'
-})
+const db = mongoose.connection;
+db.on('open', ()=>{ console.log("¡Conectado a MongoDB!")})
+db.on('open', ()=>{ console.log("¡Error al conectar a MongoDB!")})
 
 export default db

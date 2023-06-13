@@ -13,7 +13,7 @@ const CompEditBlog = () => {
     // procediemiento actualizar
     const update = async (e) =>{
         e.preventDefault()
-        await axios.put(URI+id, {  
+        await axios.put(`${URI}${id}`, {  
             title: title,
             content: content
         })
@@ -23,7 +23,7 @@ const CompEditBlog = () => {
        getBlogById()
         },[])
        const getBlogById = async ()=>{
-        const res = await axios.get(URI+id)
+        const res = await axios.get(`${URI}${id}`)
         setTitle(res.data.title)
         setContent(res.data.content)
     }

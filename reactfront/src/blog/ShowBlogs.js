@@ -28,7 +28,7 @@ const CompShowBlogs = () => {
                 <div className='col'>
                     <Link to="/create" className='btn btn-primary mt-2 mb-2'><i className="fa-solid fa-plus"></i></Link>
                     <table className="table">
-                        <thead className='table-primary'>
+                        <thead className='tableTheadBg'>
                              <tr>
                                 <th>Title</th>
                                 <th>Content</th>
@@ -36,13 +36,13 @@ const CompShowBlogs = () => {
                             </tr>
                         </thead>  
                         <tbody>
-                            { blogs.map ( (blog) => (
-                                <tr key={ blog.id }>
+                            { blogs.map ( (blog, index) => (
+                                <tr key={ index }>
                                     <td> { blog.title } </td>
                                     <td> { blog.content } </td>
                                     <td>
-                                        <Link to={`/edit/${blog.id}`} className='btn btn-info'><i className="fa-solid fa-pen-to-square"></i></Link>
-                                        <button onClick={ ()=>deleteBlog(blog.id) } className='btn btn-danger'><i className="fa-sharp fa-solid fa-trash"></i></button>
+                                        <Link to={`/edit/${blog._id}`} className='btn btn-info'><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <button onClick={ ()=>deleteBlog(blog._id) } className='btn btn-danger'><i className="fa-sharp fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             ))}
